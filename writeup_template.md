@@ -119,11 +119,11 @@ First, find peaks in a Histogram:
 
 ![alt text][image11]
 
-Then, implement Sliding Windows and Fit a Polynomial for the first frame:
+Then, implement the function `sliding_window_polyfit` to Sliding Windows and Fit a Polynomial for the first frame:
 
 ![alt text][image10]
 
-And, fit polynomial to the other images based upon a previous fit:
+And, fit polynomial to the other images based upon a previous fit  by the function `polyfit_using_prev_fit`:
 
 ![alt text][image12]
 
