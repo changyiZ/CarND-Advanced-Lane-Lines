@@ -168,6 +168,7 @@ Here's a [link to my video result](./project_video_output.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-The image pipeline performed very well for project video. L channel of HLS is good enough to catch white lines and B channel of LAB is perfect to isolate yellow lines.
-But when there were a certain amount of shadows or came up with some lighting conditions， it might not work well.
-The thresholds might not be applicable for yellow color with less purity, or there would be problems when a bright white car were driving among dull white lane lines.
+The image pipeline performed very well for project video. L channel of HLS is good enough to catch white lines and B channel of LAB is perfect to isolate yellow lines after tuning each threshold for several times.
+But when there were a certain amount of shadows that covered the line, or in some other lighting conditions，or even some cars in bright white color on the roads, it would disturb the lane finding result during the gradient threshold calculation.
+The thresholds might not be applicable for yellow color with less purity, and if there were a lot of white or bright things on frames, L channel of HLS would not be that helpful.
+So I think it might be useful to use previous dection to inform the search for the position of the lines in subsequent frames of video, by adding each new detection to a weighted mean of the position of the lines to avoid jitter.
