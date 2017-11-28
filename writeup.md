@@ -163,3 +163,11 @@ Below is an demonstration of the results of the `draw_lane` and `draw_data` func
 Here's a [link to my video result](./project_video_output.mp4)
 
 ---
+
+### Discussion
+
+#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+
+The image pipeline performed very well for project video. L channel of HLS is good enough to catch white lines and B channel of LAB is perfect to isolate yellow lines.
+But when there were a certain amount of shadows or came up with some lighting conditions， it might not work well.
+The thresholds might not be applicable for yellow color with less purity, or there would be problems when a bright white car were driving among dull white lane lines.
